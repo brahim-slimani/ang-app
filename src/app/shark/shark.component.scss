@@ -1,0 +1,19 @@
+.filter-form-container {
+    padding: 1%;
+}
+
+#filter-input[type="text"] {
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    padding: 8px;
+    margin-right: 5px;
+}
+
+button {
+    border-radius: 6px;
+    padding: 8px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+}
+
