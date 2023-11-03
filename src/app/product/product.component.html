@@ -1,1 +1,26 @@
-<p>{{product.description}}</p>
+<div class="product-card">
+    <img
+        style="height: 10rem;"
+        src={{product.thumbnail}}
+    >
+    <div class="product-details">
+        <h2 style="margin-block: 5px;">{{product.title}}</h2>
+        <span style="font-size: 20px;">€{{product.price}}</span>
+        <br>
+        <span>{{product.description}}</span>
+        <br>
+        <small>
+            By
+            <a
+                href="https://www.apple.com/"
+                target="_blank"
+            >
+                {{product.brand}}
+            </a>
+            | Category {{product.category}}
+        </small>
+        <p style="text-align: center;">
+            <button class="custom-btn">Buy now</button>
+        </p>
+    </div>
+</div>

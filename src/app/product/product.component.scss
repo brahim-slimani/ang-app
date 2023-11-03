@@ -1,0 +1,18 @@
+.product-card {
+    border: 1px solid gray;
+    width: fit-content;
+    border-radius: 0 0 8px 8px;
+}
+
+.product-details {
+    padding: 3%;
+}
+
+.custom-btn {
+    border-radius: 20px;
+    border: 1px solid var(--blue-color);
+    background-color: var(--blue-color);
+    color: white;
+    padding: 2% 10%;
+    cursor: pointer;
+}

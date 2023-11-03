@@ -11,7 +11,9 @@ import { Product } from 'src/interfaces/product';
     <app-header></app-header>
     <section>
       <app-shark></app-shark>
-      <app-product [product]="productDummyObject"></app-product>
+      <div class="content-wrapper">
+        <app-product [product]="productDummyObject"></app-product>
+      </div>
     </section>
   </main>`,
   //templateUrl: './app.component.html',
