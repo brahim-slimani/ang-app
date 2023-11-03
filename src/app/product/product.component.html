@@ -1,26 +1,24 @@
-<div class="product-card">
+<div class="product-card grid-item">
     <img
-        style="height: 10rem;"
+        alt="Ext of {{product.thumbnail}}"
+        class="product-thumb"
         src={{product.thumbnail}}
     >
     <div class="product-details">
         <h2 style="margin-block: 5px;">{{product.title}}</h2>
         <span style="font-size: 20px;">€{{product.price}}</span>
-        <br>
-        <span>{{product.description}}</span>
-        <br>
+        <p style="margin-bottom: 5px;">{{product.description}}</p>
         <small>
-            By
             <a
-                href="https://www.apple.com/"
+                href="https://www.{{product.brand}}.com/"
                 target="_blank"
             >
                 {{product.brand}}
             </a>
             | Category {{product.category}}
         </small>
-        <p style="text-align: center;">
-            <button class="custom-btn">Buy now</button>
-        </p>
     </div>
+    <p class="product-action" style="text-align: center;">
+        <button class="custom-btn">Buy now</button>
+    </p>
 </div>

@@ -1,11 +1,28 @@
 .product-card {
-    border: 1px solid gray;
-    width: fit-content;
+    border: 1px solid rgb(173, 173, 173);
+    height: 424px;
     border-radius: 0 0 8px 8px;
+    position: relative;
+}
+
+.product-card .product-thumb {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 2/1;
 }
 
 .product-details {
-    padding: 3%;
+    padding-inline: 8%;
+    padding-block: 5%;
+}
+
+.product-action {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    display: block;
 }
 
 .custom-btn {
@@ -16,3 +33,4 @@
     padding: 2% 10%;
     cursor: pointer;
 }
+

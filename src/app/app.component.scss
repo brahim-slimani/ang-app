@@ -1,7 +1,10 @@
-section {
-    padding: 8px;
+.content-wrapper {
+    padding: 4% 8%;
 }
 
-.content-wrapper {
-    padding: 1%;
+.grid-container {
+    margin: 2% 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 30px;
 }
