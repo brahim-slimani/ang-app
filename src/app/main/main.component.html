@@ -1,0 +1,9 @@
+<div>
+    <app-shark></app-shark>
+      <section class="grid-container">
+        <app-product 
+            *ngFor="let productIem of productList" 
+            [product]="productIem">
+        </app-product>
+      </section>
+</div>
