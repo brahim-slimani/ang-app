@@ -1,6 +1,6 @@
 .product-card {
     height: 424px;
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
     position: relative;
     background-color: white;
 }
@@ -9,6 +9,7 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+    border-radius: 10px 10px 0 0;
     aspect-ratio: 2/1;
 }
 

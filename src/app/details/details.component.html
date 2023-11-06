@@ -1,1 +1,52 @@
-<p>details works! {{productDetails?.description}}</p>
+<div style="display: flex;">
+    <div style="display: flex;">
+        <div style="display: grid; padding-right: 2rem;">
+            <img *ngFor="let image of productDetails?.images" [src]="image" style="height: 5rem;width: 5rem; padding: .3rem; border-radius: 20px;">
+        </div>
+        <img [src]="productDetails?.thumbnail" style="border-radius: 20px;">
+    </div>
+    <div style="margin-inline: 2rem;">
+        <div class=""><h1>{{productDetails?.title}}, {{productDetails?.description}}</h1></div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Unit Price</strong>
+                    </td>
+                    <td>{{productDetails?.price}} €</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Category</strong>
+                    </td>
+                    <td>{{productDetails?.category}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Brand</strong>
+                    </td>
+                    <td>{{productDetails?.brand}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Rating</strong>
+                    </td>
+                    <td>{{productDetails?.rating}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Stock</strong>
+                    </td>
+                    <td>{{productDetails?.stock}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Discount</strong>
+                    </td>
+                    <td>{{productDetails?.discountPercentage}}%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
