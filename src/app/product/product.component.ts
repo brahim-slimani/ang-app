@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./product.component.scss']
 })
 
-
 export class ProductComponent {
   @Input() product!: Product;
 }

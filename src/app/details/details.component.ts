@@ -16,13 +16,19 @@ export class DetailsComponent {
   productService: ProductService = inject(ProductService);
   productId = -1;
   productDetails: Product | undefined;
+  mainImgUri: String | undefined 
 
   constructor() {
     this.productId = this.route.snapshot.params['id'];
     this.productService.getProductDetails(this.productId).then((product: Product) => {
       this.productDetails = product;
+      this.mainImgUri = product.thumbnail;
     }, error => {
       console.error(error);
     })
+  }
+
+  onImageChange(uri:String) {
+    this.mainImgUri = uri;
   }
 }

@@ -1,3 +1,23 @@
 td {
     padding-right: 5rem;
 }
+
+.thumb-img {
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    padding: .3rem;
+    border-radius: 10px;
+}
+
+.main-img {
+    border-radius: 20px;
+    height: 490px;
+    width: 490px;
+}
+
+.thumb-container {
+   display: grid;
+   padding-right: 2rem;
+   height: fit-content;
+}

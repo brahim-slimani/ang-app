@@ -1,12 +1,28 @@
 <div style="display: flex;">
     <div style="display: flex;">
-        <div style="display: grid; padding-right: 2rem;">
-            <img *ngFor="let image of productDetails?.images" [src]="image" style="height: 5rem;width: 5rem; padding: .3rem; border-radius: 20px;">
+        <div class="thumb-container">
+            <img
+                loading="lazy"
+                *ngFor="let image of productDetails?.images"
+                (mouseover)="onImageChange(image)"
+                [src]="image"
+                class="thumb-img"
+                alt
+            >
         </div>
-        <img [src]="productDetails?.thumbnail" style="border-radius: 20px;">
+        <img
+            alt="Loading..."
+            loading="lazy"
+            [src]="mainImgUri"
+            class="main-img"
+        >
     </div>
     <div style="margin-inline: 2rem;">
-        <div class=""><h1>{{productDetails?.title}}, {{productDetails?.description}}</h1></div>
+        <div class>
+            <h1>
+                {{productDetails?.title}}, {{productDetails?.description}}
+            </h1>
+        </div>
         <table>
             <tbody>
                 <tr>

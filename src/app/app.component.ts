@@ -5,14 +5,14 @@ import { ProductComponent } from './product/product.component';
 import { Product } from 'src/interfaces/product';
 import { CommonModule } from '@angular/common';
 import { ProductService } from 'src/services/product.service';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   template: `<main>
     <app-header></app-header>
-    <section class="content-wrapper">
+    <section id="route-wrapper" class="content-wrapper" [ngClass]="{'tint-bck': activeClass}">
       <router-outlet></router-outlet>
     </section>
   </main>`,
@@ -21,6 +21,13 @@ import { RouterModule } from '@angular/router';
 })
 
 export class AppComponent {
-  
+  activeClass: Boolean = true;
 
+  ngDoCheck() {
+    this.activeClass = this.router.url === "/";
+  }
+
+  constructor(private router: Router) {
+   console.log(this.router)
+  }
 }

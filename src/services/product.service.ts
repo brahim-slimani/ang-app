@@ -7,8 +7,6 @@ import { Product } from 'src/interfaces/product';
 })
 export class ProductService {
 
-  constructor() { }
-
   async getProducts(): Promise<any> {
     const data = await fetch(`${environment.apiUrl}/products`);
     return data.json();
