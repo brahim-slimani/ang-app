@@ -25,6 +25,10 @@ export class MainComponent {
       console.error(error);
       alert(JSON.stringify(error));
     });
+
+    /*this.productService.getProductsBis().subscribe((data) => {
+      console.log("From main subsribtion ", data);
+    });*/
   }
 
   receiveData(data: string) {

@@ -4,6 +4,8 @@ import { bootstrapApplication, provideProtractorTestingSupport } from '@angular/
 import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app-routing.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
 
 
 // Bootstrap app through standalone option
@@ -11,7 +13,8 @@ bootstrapApplication(AppComponent, {
   //With routing module
   providers: [
     provideProtractorTestingSupport(),
-    provideRouter(routes)
+    provideRouter(routes),
+    importProvidersFrom(HttpClientModule)
   ]
 }).catch(err => console.error(err));
 

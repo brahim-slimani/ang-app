@@ -6,6 +6,7 @@ import { Product } from 'src/interfaces/product';
 import { CommonModule } from '@angular/common';
 import { ProductService } from 'src/services/product.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
