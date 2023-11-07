@@ -14,14 +14,26 @@ import { ProductService } from 'src/services/product.service';
 })
 export class MainComponent {
   productList: Product[] = [];
+  filtredProducts: Product[] = [];
   productService: ProductService = inject(ProductService);
 
   constructor() {
     this.productService.getProducts().then((res) => {
       this.productList = res.products;
+      this.filtredProducts = this.productList;
     }, error => {
       console.error(error);
       alert(JSON.stringify(error));
     });
+  }
+
+  receiveData(data: string) {
+    if(data) {
+      this.filtredProducts = this.productList.filter(product => 
+        product.title.toLocaleLowerCase().includes(data.toLocaleLowerCase())
+      );
+    } else {
+      this.filtredProducts = this.productList;
+    }
   }
 }

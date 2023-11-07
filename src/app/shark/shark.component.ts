@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,7 +9,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./shark.component.scss'],
 })
 export class SharkComponent {
-  onFilter() {
-    alert("salam");
+
+  filterKey: String | undefined;
+  @Output() filterOutput: EventEmitter<string> = new EventEmitter<string>();
+
+  onFilter(val: string) {
+    this.filterOutput.emit(val);
   }
 }

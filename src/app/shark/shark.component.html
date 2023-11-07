@@ -1,8 +1,8 @@
 <aside>
     <div class="filter-form-container">
         <form>
-            <input id="filter-input" type="text" placeholder="Filter items" />
-            <button (click)="onFilter()">Search</button>
+            <input #filter id="filter-input" (input)="onFilter(filter.value)" type="text" placeholder="Filter items" />
+            <button type="button" (click)="onFilter(filter.value)">Search</button>
         </form>
     </div>
 </aside>
