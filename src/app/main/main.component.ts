@@ -16,6 +16,7 @@ export class MainComponent {
   productList: Product[] = [];
   filtredProducts: Product[] = [];
   productService: ProductService = inject(ProductService);
+  loading: Boolean = true;
 
   constructor() {
     this.productService.getProducts().then((res) => {
@@ -24,6 +25,8 @@ export class MainComponent {
     }, error => {
       console.error(error);
       alert(JSON.stringify(error));
+    }).finally(() => {
+      this.loading = false;
     });
 
     /*this.productService.getProductsBis().subscribe((data) => {
@@ -32,8 +35,8 @@ export class MainComponent {
   }
 
   receiveData(data: string) {
-    if(data) {
-      this.filtredProducts = this.productList.filter(product => 
+    if (data) {
+      this.filtredProducts = this.productList.filter(product =>
         product.title.toLocaleLowerCase().includes(data.toLocaleLowerCase())
       );
     } else {

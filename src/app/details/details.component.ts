@@ -16,7 +16,8 @@ export class DetailsComponent {
   productService: ProductService = inject(ProductService);
   productId = -1;
   productDetails: Product | undefined;
-  mainImgUri: String | undefined 
+  mainImgUri: String | undefined;
+  loading: Boolean = true;
 
   constructor() {
     this.productId = this.route.snapshot.params['id'];
@@ -25,10 +26,12 @@ export class DetailsComponent {
       this.mainImgUri = product.thumbnail;
     }, error => {
       console.error(error);
+    }).finally(() => {
+      this.loading = false;
     })
   }
 
-  onImageChange(uri:String) {
+  onImageChange(uri: String) {
     this.mainImgUri = uri;
   }
 }

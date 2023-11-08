@@ -1,6 +1,7 @@
 <div class="products-container">
     <app-shark (filterOutput)="receiveData($event)" ></app-shark>
-    <section class="grid-container">
+    <div *ngIf="loading" class="loader-container"><img height="100" src="../../assets/spinner.svg" ></div>
+    <section *ngIf="!loading" class="grid-container">
         <app-product
             *ngFor="let productIem of filtredProducts"
             [product]="productIem"

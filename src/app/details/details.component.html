@@ -1,4 +1,16 @@
-<div style="display: flex;">
+<div
+    *ngIf="loading"
+    class="loader-container"
+>
+    <img
+        height="100"
+        src="../../assets/spinner.svg"
+    >
+</div>
+<div
+    *ngIf="!loading"
+    style="display: flex;"
+>
     <div style="display: flex;">
         <div class="thumb-container">
             <img
@@ -64,5 +76,4 @@
             </tbody>
         </table>
     </div>
-
 </div>
