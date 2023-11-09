@@ -3,10 +3,15 @@
     --primary-color: #2e3239;
     --blue-color: #0472e3;
     --background-tint: #f3f3f3;
+    --error-color: #ed1c24;
 }
 
 .d-flex {
     display: flex;
+}
+
+.d-block {
+    display: block;
 }
 
 body {

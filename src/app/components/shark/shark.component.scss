@@ -5,11 +5,13 @@
     margin-right: 5px;
 }
 
-button {
+button, .btn {
     border-radius: 6px;
     padding: 8px;
     border: 1px solid var(--primary-color);
     background-color: var(--primary-color);
     color: white;
+    text-decoration: none;
+    cursor: pointer;
 }
 

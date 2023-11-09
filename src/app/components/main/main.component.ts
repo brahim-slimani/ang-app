@@ -37,7 +37,7 @@ export class MainComponent {
   receiveData(data: string) {
     if (data) {
       this.filtredProducts = this.productList.filter(product =>
-        product.title.toLocaleLowerCase().includes(data.toLocaleLowerCase())
+        product.title?.toLocaleLowerCase().includes(data.toLocaleLowerCase())
       );
     } else {
       this.filtredProducts = this.productList;

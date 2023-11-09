@@ -5,5 +5,6 @@
             <button type="button" (click)="onFilter(filter.value)">Search</button>
         </form>
     </div>
-    <button type="button" (click)="addProduct()" class="custom-btn">+ New Product</button>
+    <a class="btn" [routerLink]="['/new-product']">+ New Product</a>
+    <app-popup *ngIf="isPopupVisible" [content]="'salam'" ></app-popup>
 </aside>

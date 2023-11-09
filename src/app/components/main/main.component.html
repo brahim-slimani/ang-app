@@ -1,5 +1,5 @@
 <div class="products-container">
-    <app-shark (filterOutput)="receiveData($event)" ></app-shark>
+    <app-shark (filterOutput)="receiveData($event)"></app-shark>
     <div *ngIf="loading" class="loader-container"><img height="100" src="../../assets/spinner.svg" ></div>
     <section *ngIf="!loading" class="grid-container">
         <app-product

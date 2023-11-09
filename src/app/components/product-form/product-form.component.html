@@ -1,0 +1,127 @@
+<section class="form-wrapper">
+    <h2>Add new product</h2>
+    <form
+        #productForm="ngForm"
+        class="form-core"
+        (ngSubmit)="onSubmit()"
+    >
+        <div class="input-container">
+            <label for="product-title">Title</label>
+            <input
+                id="product-title"
+                type="text"
+                placeholder="Enter product title, ex: iPhone 15 Pro Max"
+                name="product-title"
+                [(ngModel)]="formData.title"
+                [ngClass]="{'error-field': formSubmitted && !formData.title}"
+                class="form-input"
+                required
+            >
+            <div
+                class="error-msg-container"
+                *ngIf="formSubmitted && !formData.title"
+            >
+                <small>This field is required.</small>
+            </div>
+        </div>
+        <div class="input-container">
+            <label>Category</label>
+            <input
+                id="product-category"
+                type="text"
+                placeholder="Enter product category, ex: Smartphones"
+                name="product-category"
+                [(ngModel)]="formData.category"
+                [ngClass]="{'error-field': formSubmitted && !formData.category}"
+                class="form-input"
+                required
+            >
+            <div
+                class="error-msg-container"
+                *ngIf="formSubmitted && !formData.category"
+            >
+                <small>This field is required.</small>
+            </div>
+        </div>
+        <div class="input-container">
+            <label>Brand</label>
+            <input
+                id="product-brand"
+                type="text"
+                placeholder="Enter product brand, ex: Apple"
+                name="product-brand"
+                [(ngModel)]="formData.brand"
+                [ngClass]="{'error-field': formSubmitted && !formData.brand}"
+                class="form-input"
+                required
+            >
+            <div
+                class="error-msg-container"
+                *ngIf="formSubmitted && !formData.brand"
+            >
+                <small>This field is required.</small>
+            </div>
+        </div>
+        <div class="input-container">
+            <label>Price (€)</label>
+            <input
+                id="product-price"
+                type="number"
+                placeholder="Enter product price, ex: 250"
+                name="product-price"
+                class="form-input"
+                [(ngModel)]="formData.price"
+                [ngClass]="{'error-field': formSubmitted && !formData.price}"
+                required
+            >
+            <div
+                class="error-msg-container"
+                *ngIf="formSubmitted && !formData.price"
+            >
+                <small>This field is required.</small>
+            </div>
+        </div>
+        <div class="input-container">
+            <label>Stock</label>
+            <input
+                id="product-stock"
+                type="number"
+                placeholder="Enter product stock, ex: 100"
+                name="product-stock"
+                class="form-input"
+                [(ngModel)]="formData.stock"
+            >
+        </div>
+        <div class="input-container">
+            <label>Discount percentage</label>
+            <input
+                id="product-discount"
+                type="number"
+                placeholder="Enter product discount, ex: 10%"
+                name="product-discount"
+                class="form-input"
+                [(ngModel)]="formData.discountPercentage"
+            >
+        </div>
+        <div class="input-container">
+            <label>Description</label>
+            <textarea
+                class="form-input"
+                id="product-discription"
+                type="text"
+                placeholder="Enter product discription"
+                name="product-discription"
+                [(ngModel)]="formData.description"
+                rows="5"
+            ></textarea>
+        </div>
+        <div class="action-container">
+            <button
+                class="custom-btn"
+                type="submit"
+            >
+                Create new product
+            </button>
+        </div>
+    </form>
+</section>
