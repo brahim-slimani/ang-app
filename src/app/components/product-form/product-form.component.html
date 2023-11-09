@@ -123,7 +123,21 @@
             >
                 Create new product
             </button>
-            <span class="form-callback-msg" *ngIf="callbackResponse">{{callbackResponse}}</span>
+            <div *ngIf="callbackResponse">
+                <span
+
+                    class="form-callback-msg d-block"
+                >
+                    {{callbackResponse}}
+                </span>
+                <br/>
+                <a
+                    class
+                    [routerLink]="['/']"
+                >
+                    Return back to home page
+                </a>
+            </div>
         </div>
     </form>
 </section>

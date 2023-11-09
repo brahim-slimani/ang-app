@@ -4,11 +4,12 @@ import { Product, productDefault } from 'src/app/interfaces/product';
 import { FormsModule } from '@angular/forms';
 import { REQUIRED_INPUT_MESSAGE } from 'src/app/shared/constants';
 import { ProductService } from 'src/app/services/product.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product-form',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss']
 })
