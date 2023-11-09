@@ -17,3 +17,14 @@ body {
     padding-block: 10%;
     text-align: center;
 }
+
+.custom-btn {
+    border-radius: 20px;
+    border: 1px solid var(--blue-color);
+    background-color: var(--blue-color);
+    color: white;
+    padding: 2% 10%;
+    cursor: pointer;
+    text-decoration: auto;
+}
+

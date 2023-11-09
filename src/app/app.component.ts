@@ -1,24 +1,21 @@
-import { Component, inject } from '@angular/core';
-import { SharkComponent } from './shark/shark.component';
-import { HeaderComponent } from './header/header.component';
-import { ProductComponent } from './product/product.component';
-import { Product } from 'src/interfaces/product';
+import { Component } from '@angular/core';
+import { SharkComponent } from './components/shark/shark.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { ProductComponent } from './components/product/product.component';
 import { CommonModule } from '@angular/common';
-import { ProductService } from 'src/services/product.service';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   template: `<main>
-    <app-header></app-header>
+    <app-header></app-header> 
     <section id="route-wrapper" class="content-wrapper" [ngClass]="{'tint-bck': activeClass}">
       <router-outlet></router-outlet>
     </section>
   </main>`,
   styleUrls: ['./app.component.scss'],
-  imports: [CommonModule, SharkComponent, HeaderComponent, ProductComponent, RouterModule]
+  imports: [CommonModule, SharkComponent, ProductComponent, RouterModule, HeaderComponent]
 })
 
 export class AppComponent {

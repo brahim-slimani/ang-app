@@ -16,4 +16,8 @@ export class SharkComponent {
   onFilter(val: string) {
     this.filterOutput.emit(val);
   }
+
+  addProduct() {
+    alert("salam from ");
+  }
 }
