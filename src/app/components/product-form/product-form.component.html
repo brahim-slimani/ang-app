@@ -117,11 +117,13 @@
         </div>
         <div class="action-container">
             <button
+                *ngIf="!callbackResponse"
                 class="custom-btn"
                 type="submit"
             >
                 Create new product
             </button>
+            <span class="form-callback-msg" *ngIf="callbackResponse">{{callbackResponse}}</span>
         </div>
     </form>
 </section>

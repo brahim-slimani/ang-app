@@ -8,8 +8,7 @@ import { ProductFormComponent } from '../components/product-form/product-form.co
 export const routes: Routes = [
   {
     path: '',
-    component: ProductFormComponent,
-    //MainComponent,
+    component: MainComponent,
     title: 'Home page'
   },
   {

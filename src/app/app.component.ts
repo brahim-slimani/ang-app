@@ -22,7 +22,7 @@ export class AppComponent {
   activeClass: Boolean = true;
 
   ngDoCheck() {
-    this.activeClass = this.router.url === "/";
+    this.activeClass = !this.router.url.includes("details/");
   }
 
   constructor(private router: Router) {
