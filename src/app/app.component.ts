@@ -4,12 +4,13 @@ import { HeaderComponent } from './shared/header/header.component';
 import { ProductComponent } from './components/product/product.component';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { JWTWorkerService } from './services/jwt-worker.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   template: `<main>
-    <!-- <app-header></app-header>  -->
+    <app-header *ngIf="this.jwtWorker.isAuthenticated()"></app-header> 
     <section id="route-wrapper" class="content-wrapper" [ngClass]="{'tint-bck': activeClass}">
       <router-outlet></router-outlet>
     </section>
@@ -25,7 +26,7 @@ export class AppComponent {
     this.activeClass = !this.router.url.includes("details/") && !this.router.url.includes("login");
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public jwtWorker: JWTWorkerService) {
    console.log(this.router)
   }
 }
