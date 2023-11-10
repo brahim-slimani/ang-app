@@ -1,6 +1,6 @@
 <aside class="d-flex" style="justify-content: space-between;">
     <div class="filter-form-container">
-        <form>
+        <form class="d-flex">
             <input #filter id="filter-input" (input)="onFilter(filter.value)" type="text" placeholder="Filter items" />
             <button type="button" (click)="onFilter(filter.value)">Search</button>
         </form>
