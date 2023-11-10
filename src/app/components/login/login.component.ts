@@ -19,7 +19,9 @@ export class LoginComponent {
   formSubmitted: boolean = false;
   errorMsg: string | undefined;
 
-  constructor(private router: Router, private authService: AuthService, private jwtWorker: JWTWorkerService) { }
+  constructor(private router: Router, private authService: AuthService, private jwtWorker: JWTWorkerService) {
+    if (jwtWorker.isAuthenticated()) router.navigate(["/"])
+  }
 
   onSubmit() {
     this.formSubmitted = true;

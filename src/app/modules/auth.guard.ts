@@ -1,11 +1,10 @@
-import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
-import { Observable } from "rxjs";
+import { Injectable, inject } from "@angular/core";
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from "@angular/router";
 import { JWTWorkerService } from "../services/jwt-worker.service";
 
-@Injectable({
-    providedIn: 'root'
-})
+
+/**
+ * Deprecated implementation, use functional injection instead
 export class AuthGuard implements CanActivate {
 
     constructor(private jwtWorkerService: JWTWorkerService, private router: Router) { }
@@ -19,4 +18,5 @@ export class AuthGuard implements CanActivate {
         }
     }
 
-}
+}*/
+
