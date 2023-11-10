@@ -17,9 +17,20 @@
 
 .h4 {
     font-size: 1rem;
-    font-family: Nunito,sans-serif;
+    font-family: Nunito, sans-serif;
 }
 
 .form-content {
     border: 1px solid #ddd;
+    width: 350px;
+    margin-top: 2%;
+}
+
+.error-msg {
+    color: var(--error-color);
+    text-align: center;
+    padding-top: 1%;
+    //border: 1px solid var(--error-color);
+    display: block;
+    margin: auto;
 }
