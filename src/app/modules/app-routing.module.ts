@@ -4,8 +4,14 @@ import { MainComponent } from '../components/main/main.component';
 import { DetailsComponent } from '../components/details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductFormComponent } from '../components/product-form/product-form.component';
+import { LoginComponent } from '../components/login/login.component';
 
 export const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+    title: 'Login page'
+  },
   {
     path: '',
     component: MainComponent,

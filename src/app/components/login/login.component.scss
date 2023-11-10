@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Agustina Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Agustina Regular"),
+        url("../../../assets/fonts/Agustina.woff") format("woff");
+    font-display: swap;
+}
+
+.logo {
+    font-family: 'Agustina Regular';
+    white-space: nowrap;
+    height: 20px;
+    text-decoration: auto;
+    color: black;
+}
+
+.h4 {
+    font-size: 1rem;
+    font-family: Nunito,sans-serif;
+}
+
+.form-content {
+    border: 1px solid #ddd;
+}

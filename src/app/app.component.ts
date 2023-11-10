@@ -9,7 +9,7 @@ import { Router, RouterModule } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   template: `<main>
-    <app-header></app-header> 
+    <!-- <app-header></app-header>  -->
     <section id="route-wrapper" class="content-wrapper" [ngClass]="{'tint-bck': activeClass}">
       <router-outlet></router-outlet>
     </section>
@@ -22,7 +22,7 @@ export class AppComponent {
   activeClass: Boolean = true;
 
   ngDoCheck() {
-    this.activeClass = !this.router.url.includes("details/");
+    this.activeClass = !this.router.url.includes("details/") && !this.router.url.includes("login");
   }
 
   constructor(private router: Router) {
