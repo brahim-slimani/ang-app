@@ -30,7 +30,12 @@ export const routes: Routes = [
     component: ProductFormComponent,
     title: 'New Product',
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    canActivate: [AuthGuard]
+  },
 ]
 
 @NgModule({
