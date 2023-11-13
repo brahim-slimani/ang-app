@@ -85,3 +85,8 @@ body {
 .error-field {
     border: 2px solid var(--error-color) !important;
 }
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}

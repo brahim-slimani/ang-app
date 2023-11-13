@@ -5,6 +5,7 @@ import { ProductComponent } from './components/product/product.component';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { JWTWorkerService } from './services/jwt-worker.service';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +15,10 @@ import { JWTWorkerService } from './services/jwt-worker.service';
     <section id="route-wrapper" class="content-wrapper" [ngClass]="{'tint-bck': activeClass}">
       <router-outlet></router-outlet>
     </section>
+    <app-footer></app-footer>
   </main>`,
   styleUrls: ['./app.component.scss'],
-  imports: [CommonModule, SharkComponent, ProductComponent, RouterModule, HeaderComponent]
+  imports: [CommonModule, SharkComponent, ProductComponent, RouterModule, HeaderComponent, FooterComponent]
 })
 
 export class AppComponent {
