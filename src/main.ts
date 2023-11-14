@@ -4,8 +4,9 @@ import { bootstrapApplication, provideProtractorTestingSupport } from '@angular/
 import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/modules/app-routing.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
+import { CustomHttpInterceptor } from './app/modules/http-interceptor';
 
 
 // Bootstrap app through standalone option
@@ -14,7 +15,12 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideProtractorTestingSupport(),
     provideRouter(routes),
-    importProvidersFrom(HttpClientModule)
+    importProvidersFrom(HttpClientModule),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomHttpInterceptor,
+      multi: true
+    }
   ]
 }).catch(err => console.error(err));
 
