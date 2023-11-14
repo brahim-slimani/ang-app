@@ -21,14 +21,13 @@ export class DetailsComponent {
 
   constructor() {
     this.productId = this.route.snapshot.params['id'];
-    this.productService.getProductDetails(this.productId).then((product: Product) => {
+    this.productService.getProductDetails(this.productId).subscribe((product: Product) => {
       this.productDetails = product;
       this.mainImgUri = product.thumbnail;
+      this.loading = false;
     }, error => {
       console.error(error);
-    }).finally(() => {
-      this.loading = false;
-    })
+    });
   }
 
   onImageChange(uri: String) {

@@ -19,19 +19,14 @@ export class MainComponent {
   loading: Boolean = true;
 
   constructor() {
-    this.productService.getProducts().then((res) => {
+    this.productService.getProducts().subscribe((res) => {
       this.productList = res.products;
       this.filtredProducts = this.productList;
+      this.loading = false;
     }, error => {
       console.error(error);
       alert(JSON.stringify(error));
-    }).finally(() => {
-      this.loading = false;
     });
-
-    /*this.productService.getProductsBis().subscribe((data) => {
-      console.log("From main subsribtion ", data);
-    });*/
   }
 
   receiveData(data: string) {

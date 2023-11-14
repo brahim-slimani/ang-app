@@ -11,19 +11,17 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-  async getProducts(): Promise<any> {
-    const data = await fetch(`${environment.apiUrl}/products`);
-    return data.json();
+  // async getProducts(): Promise<any> {
+  //   const data = await fetch(`${environment.apiUrl}/products`);
+  //   return data.json();
+  // }
+
+  getProducts(): Observable<any> {
+    return this.httpClient.request('GET', `${environment.apiUrl}/products`, { responseType: 'json' });
   }
 
-  async getProductDetails(id: Number): Promise<Product> {
-    const data = await fetch(`${environment.apiUrl}/products/${id}`);
-    return data.json();
-  }
-
-  getProductsBis(): Observable<any> {
-    let data = this.httpClient.request('GET', `${environment.apiUrl}/products`, { responseType: 'json' });
-    return data;
+  getProductDetails(id: Number): Observable<any> {
+    return this.httpClient.request('GET', `${environment.apiUrl}/products/${id}`, { responseType: 'json' })
   }
 
   createProduct(product: Product): Observable<any> {
