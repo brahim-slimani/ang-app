@@ -6,6 +6,7 @@ import { routes } from './app/modules/app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { CustomHttpInterceptor } from './app/modules/http-interceptor';
+import { APP_BASE_HREF } from '@angular/common';
 
 
 // Bootstrap app through standalone option
@@ -19,6 +20,10 @@ bootstrapApplication(AppComponent, {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
       multi: true
+    },
+    {
+      provide: APP_BASE_HREF,
+      useValue: "/ang-app/"
     }
   ]
 }).catch(err => console.error(err));
