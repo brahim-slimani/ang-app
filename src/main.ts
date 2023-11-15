@@ -21,11 +21,7 @@ bootstrapApplication(AppComponent, {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
       multi: true
-    },
-    {
-      provide: APP_BASE_HREF,
-      useValue: environment.appBase
-    },
+    }
   ]
 }).catch(err => console.error(err));
 

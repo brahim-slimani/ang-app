@@ -10,14 +10,24 @@ import { FooterComponent } from './shared/footer/footer.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  template: `<main>
+  template: `
+  <style>
+    .content-wrapper {
+        padding: 3% 10%;
+        width: auto;
+    }
+    .tint-bck {
+        background-color: var(--background-tint);
+        min-height: 100vh;
+    }
+  </style>
+  <main>
     <app-header *ngIf="this.jwtWorker.isAuthenticated()"></app-header> 
     <section id="route-wrapper" class="content-wrapper" [ngClass]="{'tint-bck': activeClass}">
       <router-outlet></router-outlet>
     </section>
     <app-footer></app-footer>
   </main>`,
-  styleUrls: ['./app.component.scss'],
   imports: [CommonModule, SharkComponent, ProductComponent, RouterModule, HeaderComponent, FooterComponent]
 })
 
@@ -29,6 +39,6 @@ export class AppComponent {
   }
 
   constructor(private router: Router, public jwtWorker: JWTWorkerService) {
-   console.log(this.router)
+    console.log(this.router)
   }
 }
