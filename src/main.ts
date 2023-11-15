@@ -7,6 +7,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { CustomHttpInterceptor } from './app/modules/http-interceptor';
 import { APP_BASE_HREF } from '@angular/common';
+import { environment } from './environments/environment';
 
 
 // Bootstrap app through standalone option
@@ -23,8 +24,8 @@ bootstrapApplication(AppComponent, {
     },
     {
       provide: APP_BASE_HREF,
-      useValue: "/ang-app/"
-    }
+      useValue: environment.appBase
+    },
   ]
 }).catch(err => console.error(err));
 
