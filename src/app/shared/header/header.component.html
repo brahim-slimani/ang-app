@@ -10,6 +10,6 @@
         </a>
     </div>
     <div>
-        <a style="color: inherit;" (click)="logout()" [routerLink]="['/login']">Sign out</a>
+        <a style="color: inherit; cursor: pointer;" (click)="authService.logout()">Sign out</a>
     </div>
 </nav>

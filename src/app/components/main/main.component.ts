@@ -25,7 +25,7 @@ export class MainComponent {
       this.loading = false;
     }, error => {
       console.error(error);
-      alert(JSON.stringify(error));
+      //alert(JSON.stringify(error));
     });
   }
 

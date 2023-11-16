@@ -17,6 +17,11 @@ export class AuthService {
         return this.httpClient.request('POST', `${environment.apiUrl}/auth/login`, { body: JSON.stringify(credential), headers: { 'Content-Type': 'application/json' } })
     }
 
+    logout() {
+        this.jwtWorker.deleteToken();
+        this.router.navigateByUrl('/login');
+    }
+
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         if (this.jwtWorker.isAuthenticated()) {
             return true;

@@ -9,12 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  constructor(private httpClient: HttpClient) {}
-
-  // async getProducts(): Promise<any> {
-  //   const data = await fetch(`${environment.apiUrl}/products`);
-  //   return data.json();
-  // }
+  constructor(private httpClient: HttpClient) { }
 
   getProducts(): Observable<any> {
     return this.httpClient.request('GET', `${environment.apiUrl}/auth/products`, { responseType: 'json' });
@@ -27,4 +22,10 @@ export class ProductService {
   createProduct(product: Product): Observable<any> {
     return this.httpClient.request('POST', `${environment.apiUrl}/auth/products/add`, { body: JSON.stringify(product) })
   }
+
+  // async getProducts(): Promise<any> {
+  //   const data = await fetch(`${environment.apiUrl}/products`);
+  //   return data.json();
+  // }
+
 }

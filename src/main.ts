@@ -9,7 +9,7 @@ import { CustomHttpInterceptor } from './app/modules/http-interceptor';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
-// Bootstrap app through standalone option
+// Bootstrap app through standalone App
 bootstrapApplication(AppComponent, {
   providers: [
     provideProtractorTestingSupport(),
