@@ -6,13 +6,11 @@ import { routes } from './app/modules/app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { CustomHttpInterceptor } from './app/modules/http-interceptor';
-import { APP_BASE_HREF } from '@angular/common';
-import { environment } from './environments/environment';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 // Bootstrap app through standalone option
 bootstrapApplication(AppComponent, {
-  //With routing module
   providers: [
     provideProtractorTestingSupport(),
     provideRouter(routes),
@@ -21,6 +19,10 @@ bootstrapApplication(AppComponent, {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
       multi: true
+    },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
     }
   ]
 }).catch(err => console.error(err));
