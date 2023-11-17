@@ -7,7 +7,7 @@
     >
     <div class="product-details">
         <h3 style="margin-block: 5px;">{{product.title}}</h3>
-        <span style="font-size: 20px;">€{{product.price}}</span>
+        <span style="font-size: 20px;">{{product.price | currency: 'EUR'}}</span>
         <p style="margin-bottom: 5px;">{{product.description}}</p>
         <small>
             <a

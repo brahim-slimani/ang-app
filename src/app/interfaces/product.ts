@@ -2,7 +2,7 @@ export interface Product {
     id: Number;
     title: String;
     description: String;
-    price: Number | null;
+    price: number | null;
     discountPercentage: Number | null;
     rating: Number | null;
     stock: Number | null;
