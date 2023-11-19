@@ -1,8 +1,8 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { Observable, tap } from "rxjs";
-import { JWTWorkerService } from "../services/jwt-worker.service";
-import { AuthService } from "../services/auth.service";
+import { JWTWorkerService } from "../../services/jwt-worker.service";
+import { AuthService } from "../../services/auth.service";
 
 @Injectable({
     providedIn: 'root'

@@ -4,7 +4,7 @@ import { NgModule, importProvidersFrom } from "@angular/core";
 import { BrowserModule, provideProtractorTestingSupport } from "@angular/platform-browser";
 import { AppComponent } from "../app.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { CustomHttpInterceptor } from "./http-interceptor";
+import { CustomHttpInterceptor } from "../core/interceptors/http-interceptor";
 import { HeaderComponent } from "../shared/header/header.component";
 import { FooterComponent } from "../shared/footer/footer.component";
 

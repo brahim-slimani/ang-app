@@ -1,6 +1,6 @@
 import { Injectable, inject } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from "@angular/router";
-import { JWTWorkerService } from "../services/jwt-worker.service";
+import { JWTWorkerService } from "../../services/jwt-worker.service";
 
 
 /**
