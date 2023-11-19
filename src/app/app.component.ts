@@ -1,44 +1,35 @@
-import { Component } from '@angular/core';
-import { SharkComponent } from './components/shark/shark.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { ProductComponent } from './components/product/product.component';
-import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
-import { JWTWorkerService } from './services/jwt-worker.service';
-import { FooterComponent } from './shared/footer/footer.component';
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { JWTWorkerService } from "./services/jwt-worker.service";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  template: `
-  <style>
-    .content-wrapper {
-        padding: 3% 10%;
-        width: auto;
-    }
-    .tint-bck {
-        background-color: var(--background-tint);
-        min-height: 100vh;
-    }
-  </style>
-  <main>
+    selector: 'app-root',
+    template: `
+    <style>
+      .content-wrapper {
+          padding: 3% 10%;
+          width: auto;
+      }
+      .tint-bck {
+          background-color: var(--background-tint);
+          min-height: 100vh;
+      }
+    </style>
+    <main>
     <app-header *ngIf="this.jwtWorker.isAuthenticated()"></app-header> 
     <section id="route-wrapper" class="content-wrapper" [ngClass]="{'tint-bck': activeClass}">
       <router-outlet></router-outlet>
     </section>
     <app-footer></app-footer>
-  </main>`,
-  imports: [CommonModule, SharkComponent, ProductComponent, RouterModule, HeaderComponent, FooterComponent]
+    </main>`,
 })
 
 export class AppComponent {
-  activeClass: Boolean = true;
+    activeClass: Boolean = true;
 
-  ngDoCheck() {
-    this.activeClass = !this.router.url.includes("details/") && !this.router.url.includes("login");
-  }
+    ngDoCheck() {
+        this.activeClass = !this.router.url.includes("details/") && !this.router.url.includes("login");
+    }
 
-  constructor(private router: Router, public jwtWorker: JWTWorkerService) {
-    console.log(this.router)
-  }
+    constructor(private router: Router, public jwtWorker: JWTWorkerService) {}
 }
