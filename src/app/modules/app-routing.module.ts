@@ -6,7 +6,7 @@ import { ProductFormComponent } from '../features/product-form/product-form.comp
 import { LoginComponent } from '../features/login/login.component';
 import { AuthGuard } from '../services/auth.service';
 
-export const routes: Routes = [
+const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
