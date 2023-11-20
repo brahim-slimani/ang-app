@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Signal, WritableSignal, computed, effect, inject, signal, untracked } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '../product/product.component';
 import { SharkComponent } from '../shark/shark.component';
@@ -14,14 +14,18 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class MainComponent {
   productList: Product[] = [];
-  filtredProducts: Product[] = [];
+  filtredProducts: WritableSignal<Product[]> = signal([]);
   productService: ProductService = inject(ProductService);
   loading: Boolean = true;
+  pageSize = 10;
+  displayFactor = signal(this.pageSize);
+  products: Signal<Product[]> = computed(() => this.filtredProducts().slice(0, this.displayFactor()));
+
 
   constructor() {
     this.productService.getProducts().subscribe((res) => {
       this.productList = res.products;
-      this.filtredProducts = this.productList;
+      this.filtredProducts.set(this.productList);
       this.loading = false;
     }, error => {
       console.error(error);
@@ -29,13 +33,27 @@ export class MainComponent {
     });
   }
 
-  receiveData(data: string) {
+  filterCallback(data: string) {
     if (data) {
-      this.filtredProducts = this.productList.filter(product =>
+      this.filtredProducts.set(this.productList.filter(product =>
         product.title?.toLocaleLowerCase().includes(data.toLocaleLowerCase())
-      );
+      ));
     } else {
-      this.filtredProducts = this.productList;
+      this.filtredProducts.set(this.productList);
     }
   }
+
+  seeMoreAction() {
+    this.displayFactor.update(val => val + this.pageSize);
+  }
+
+
+  //Trigger changes on filtredProducts state
+  private loggingEffect = effect(() => {
+    console.log(`The length is: ${this.filtredProducts().length})`);
+    untracked(() => {
+      this.displayFactor();
+    })
+  });
+
 }

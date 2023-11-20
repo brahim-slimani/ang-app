@@ -1,11 +1,25 @@
 <div class="products-container">
-    <app-shark (filterOutput)="receiveData($event)"></app-shark>
-    <div *ngIf="loading" class="loader-container"><img height="100" src="assets/spinner.svg" ></div>
-    <section *ngIf="!loading" class="grid-container">
+    <app-shark (filterOutput)="filterCallback($event)"></app-shark>
+    <div
+        *ngIf="loading"
+        class="loader-container"
+    >
+        <img
+            height="100"
+            src="assets/spinner.svg"
+        >
+    </div>
+    <section
+        *ngIf="!loading"
+        class="grid-container"
+    >
         <app-product
-            *ngFor="let productIem of filtredProducts"
+            *ngFor="let productIem of products()"
             [product]="productIem"
         >
         </app-product>
     </section>
+    <div style="text-align: center;">
+        <button (click)="seeMoreAction()" style="padding-inline: 7.3%; padding-block: 8px;">See more</button>
+    </div>
 </div>
