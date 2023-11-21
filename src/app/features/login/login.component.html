@@ -55,15 +55,19 @@
         </div>
         <div class="action-container">
             <button
+                [disabled]="pendingReqStatus"
                 class="custom-btn"
                 style="width: 100%;border-radius: 6px;"
                 type="submit"
             >
-                Login
+                {{pendingReqStatus ? 'Logging in...' : 'Login'}}
             </button>
         </div>
     </form>
-    <div *ngIf="errorMsg" class="error-msg">
+    <div
+        *ngIf="errorMsg"
+        class="error-msg"
+    >
         <span>{{errorMsg}}</span>
     </div>
 </div>

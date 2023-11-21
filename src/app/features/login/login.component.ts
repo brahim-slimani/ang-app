@@ -18,6 +18,7 @@ export class LoginComponent {
   formData: Credential = { username: null, password: null }
   formSubmitted: boolean = false;
   errorMsg: string | undefined;
+  pendingReqStatus: boolean = false;
 
   constructor(private router: Router, private authService: AuthService, private jwtWorker: JWTWorkerService) {
     if (jwtWorker.isAuthenticated()) router.navigate(["/"])
@@ -26,6 +27,7 @@ export class LoginComponent {
   onSubmit() {
     this.formSubmitted = true;
     if (this.formData.username && this.formData.password) {
+      this.pendingReqStatus = true;
       this.authService.login(this.formData).subscribe(res => {
         this.errorMsg = '';
         this.jwtWorker.persistTokenInStorage(res.token);
@@ -34,7 +36,8 @@ export class LoginComponent {
       }, error => {
         console.log(JSON.stringify(error));
         this.errorMsg = error?.error?.message;
-      })
+        this.pendingReqStatus = false;
+      });
     }
   }
 
