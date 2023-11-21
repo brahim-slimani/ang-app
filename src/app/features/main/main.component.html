@@ -20,6 +20,12 @@
         </app-product>
     </section>
     <div style="text-align: center;">
-        <button (click)="seeMoreAction()" style="padding-inline: 7.3%; padding-block: 8px;">See more</button>
+        <button
+            [disabled]="fullPage"
+            (click)="seeMoreAction()"
+            style="padding-inline: 7.3%; padding-block: 8px;"
+        >
+            See more
+        </button>
     </div>
 </div>

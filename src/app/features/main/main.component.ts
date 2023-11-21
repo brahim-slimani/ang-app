@@ -18,9 +18,9 @@ export class MainComponent {
   productService: ProductService = inject(ProductService);
   loading: Boolean = true;
   pageSize = 10;
+  fullPage: boolean = false;
   displayFactor = signal(this.pageSize);
   products: Signal<Product[]> = computed(() => this.filtredProducts().slice(0, this.displayFactor()));
-
 
   constructor() {
     this.productService.getProducts().subscribe((res) => {
@@ -47,12 +47,11 @@ export class MainComponent {
     this.displayFactor.update(val => val + this.pageSize);
   }
 
-
-  //Trigger changes on filtredProducts state
-  private loggingEffect = effect(() => {
-    console.log(`The length is: ${this.filtredProducts().length})`);
+  //Trigger changes on signals state
+  private onSignalChnage = effect(() => {
+    this.fullPage = !(this.displayFactor() < this.filtredProducts().length);
     untracked(() => {
-      this.displayFactor();
+      //Signals dependencies to be ignored should be untracked here!
     })
   });
 
