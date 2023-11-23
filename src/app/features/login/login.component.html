@@ -21,6 +21,7 @@
                 type="text"
                 placeholder="Enter your username"
                 name="username"
+                autocomplete="off"
                 [(ngModel)]="formData.username"
                 [ngClass]="{'error-field': formSubmitted && !formData.username}"
                 class="form-input"

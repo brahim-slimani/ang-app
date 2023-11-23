@@ -6,6 +6,18 @@
     --error-color: #ed1c24;
 }
 
+[data-theme="dark"] {
+    --bck-color: #0d1017;
+    --txt-color: #ffff;
+    --border-color: #30363d;
+}
+
+[data-theme="light"] {
+    --bck-color: #ffff;
+    --txt-color: #000000;
+    --border-color: #ddd;
+}
+
 /* Agustina Regular */
 @font-face {
     font-family: "Agustina Regular";
@@ -26,6 +38,12 @@
 
 body {
     font-family: system-ui;
+}
+
+#root-container {
+    background-color: var(--bck-color);
+    color: var(--txt-color);
+    height: 100vh;
 }
 
 .loader-container {
@@ -67,6 +85,12 @@ body {
 .input-container input {
     display: block;
     text-align: initial;
+    background-color: var(--bck-color) !important;
+    color: var(--txt-color);
+}
+
+main[data-theme="dark"] .input-container input:focus-visible {
+    outline: 1px solid var(--blue-color);
 }
 
 .input-container label {

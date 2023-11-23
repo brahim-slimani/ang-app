@@ -15,7 +15,7 @@ import { JWTWorkerService } from "./services/jwt-worker.service";
           min-height: 100vh;
       }
     </style>
-    <main>
+    <main id="root-container" data-theme="light">
     <app-header *ngIf="this.jwtWorker.isAuthenticated()"></app-header> 
     <section id="route-wrapper" class="content-wrapper" [ngClass]="{'tint-bck': activeClass}">
       <router-outlet></router-outlet>

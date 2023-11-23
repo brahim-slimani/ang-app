@@ -3,7 +3,7 @@
     white-space: nowrap;
     height: 20px;
     text-decoration: auto;
-    color: black;
+    color: var(--txt-color);
 }
 
 .h4 {
@@ -12,9 +12,11 @@
 }
 
 .form-content {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     width: 350px;
     margin-top: 2%;
+    background-color: var(--bck-color);
+    color: var(--txt-color);
 }
 
 .error-msg {
