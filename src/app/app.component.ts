@@ -9,15 +9,15 @@ import { JWTWorkerService } from "./services/jwt-worker.service";
       .content-wrapper {
           padding: 3% 10%;
           width: auto;
+          background-color: var(--container-bck-color);
       }
-      .tint-bck {
-          background-color: var(--background-tint);
-          min-height: 100vh;
+      main[data-theme="light"] .white-bck {
+          background-color: white !important;
       }
     </style>
     <main id="root-container" data-theme="light">
     <app-header *ngIf="this.jwtWorker.isAuthenticated()"></app-header> 
-    <section id="route-wrapper" class="content-wrapper" [ngClass]="{'tint-bck': activeClass}">
+    <section id="route-wrapper" class="content-wrapper" [ngClass]="{'white-bck': shouldBeWhiteBck}">
       <router-outlet></router-outlet>
     </section>
     <app-footer></app-footer>
@@ -25,10 +25,10 @@ import { JWTWorkerService } from "./services/jwt-worker.service";
 })
 
 export class AppComponent {
-    activeClass: Boolean = true;
+    shouldBeWhiteBck: Boolean = true;
 
     ngDoCheck() {
-        this.activeClass = !this.router.url.includes("details/") && !this.router.url.includes("login");
+        this.shouldBeWhiteBck = this.router.url.includes("details/") || this.router.url.includes("login");
     }
 
     constructor(private router: Router, public jwtWorker: JWTWorkerService) {}

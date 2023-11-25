@@ -5,3 +5,10 @@
     gap: 20px;
 }
 
+button#see-more-btn {
+    color: var(--blue-color);
+}
+
+button#see-more-btn:disabled {
+    color: var(--blur-color) !important;
+}
