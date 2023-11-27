@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, signal } from "@angular/core";
 import { Router } from "@angular/router";
 import { JWTWorkerService } from "./services/jwt-worker.service";
+import { CommonService } from "./services/common.service";
 
 @Component({
     selector: 'app-root',
@@ -31,5 +32,5 @@ export class AppComponent {
         this.shouldBeWhiteBck = this.router.url.includes("details/") || this.router.url.includes("login");
     }
 
-    constructor(private router: Router, public jwtWorker: JWTWorkerService) {}
+    constructor(private router: Router, public jwtWorker: JWTWorkerService, private commonService: CommonService) {}
 }

@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-theme-switcher',
@@ -9,14 +10,25 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./theme-switcher.component.scss']
 })
 export class ThemeSwitcherComponent {
+  private commonService: CommonService = inject(CommonService);
   themeOptions = {
-    dark: "Dark",
-    light: "Light"
+    dark: "dark",
+    light: "light"
   }
   selectedTheme = signal(this.themeOptions.light);
+
+  ngOnInit() {
+    this.commonService.themeState$.subscribe(val => {
+      this.selectedTheme.set(val);
+    })
+  }
 
   switchTheme(): void {
     this.selectedTheme.update(val => val == this.themeOptions.dark ? this.themeOptions.light : this.themeOptions.dark);
   }
+
+  onThemeChange = effect(() => {
+    this.commonService.updateThemeState(this.selectedTheme());
+  })
 
 }
