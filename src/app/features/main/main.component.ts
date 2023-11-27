@@ -4,11 +4,12 @@ import { ProductComponent } from '../product/product.component';
 import { SharkComponent } from '../shark/shark.component';
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
+import { ThemeSwitcherComponent } from 'src/app/shared/theme-switcher/theme-switcher.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule, ProductComponent, SharkComponent],
+  imports: [CommonModule, ProductComponent, SharkComponent, ThemeSwitcherComponent],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })

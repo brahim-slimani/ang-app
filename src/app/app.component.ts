@@ -15,7 +15,7 @@ import { JWTWorkerService } from "./services/jwt-worker.service";
           background-color: white !important;
       }
     </style>
-    <main id="root-container" data-theme="light">
+    <main id="root-container" data-theme="dark">
     <app-header *ngIf="this.jwtWorker.isAuthenticated()"></app-header> 
     <section id="route-wrapper" class="content-wrapper" [ngClass]="{'white-bck': shouldBeWhiteBck}">
       <router-outlet></router-outlet>
