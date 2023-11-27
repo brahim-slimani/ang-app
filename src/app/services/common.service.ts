@@ -7,7 +7,7 @@ import { BehaviorSubject } from "rxjs";
 })
 export class CommonService {
 
-    private themeState = new BehaviorSubject<string>(localStorage.getItem("theme") || "Light");
+    private themeState = new BehaviorSubject<string>(localStorage.getItem("theme") || "light");
     themeState$ = this.themeState.asObservable();
 
     updateThemeState(newState: string): void {

@@ -15,9 +15,9 @@ export class ThemeSwitcherComponent {
     dark: "dark",
     light: "light"
   }
-  selectedTheme = signal(this.themeOptions.light);
+  selectedTheme = signal("");
 
-  ngOnInit() {
+  constructor() {
     this.commonService.themeState$.subscribe(val => {
       this.selectedTheme.set(val);
     })

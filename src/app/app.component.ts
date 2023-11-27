@@ -16,7 +16,7 @@ import { CommonService } from "./services/common.service";
           background-color: white !important;
       }
     </style>
-    <main id="root-container" data-theme="dark">
+    <main id="root-container" attr.data-theme="{{themeState()}}">
     <app-header *ngIf="this.jwtWorker.isAuthenticated()"></app-header> 
     <section id="route-wrapper" class="content-wrapper" [ngClass]="{'white-bck': shouldBeWhiteBck}">
       <router-outlet></router-outlet>
@@ -27,8 +27,12 @@ import { CommonService } from "./services/common.service";
 
 export class AppComponent {
     shouldBeWhiteBck: Boolean = true;
-
+    themeState = signal("");
+ 
     ngDoCheck() {
+        this.commonService.themeState$.subscribe(val => {
+            this.themeState.set(val);
+        })
         this.shouldBeWhiteBck = this.router.url.includes("details/") || this.router.url.includes("login");
     }
 
