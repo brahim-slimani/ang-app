@@ -8,8 +8,11 @@
             Brahim Slimani
             <span class="h4">/&gt;</span>
         </a>
+        <span style="margin-left: 5rem;">
+            <a [routerLinkActive]="['active-link']" [routerLink]="['/spread']">Spread</a>
+        </span>
     </div>
     <div>
-        <a style="color: inherit; cursor: pointer;" (click)="authService.logout()">Sign out</a>
+        <a style="cursor: pointer;" (click)="authService.logout()">Sign out</a>
     </div>
 </nav>

@@ -5,6 +5,7 @@ import { DetailsComponent } from '../features/details/details.component';
 import { ProductFormComponent } from '../features/product-form/product-form.component';
 import { LoginComponent } from '../features/login/login.component';
 import { AuthGuard } from '../services/auth.service';
+import { SpreadComponent } from '../features/spread/spread.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
     path: 'new-product',
     component: ProductFormComponent,
     title: 'New Product',
+    canActivate: [AuthGuard]
+  },
+  {
+    path : 'spread',
+    component: SpreadComponent,
     canActivate: [AuthGuard]
   },
   {
