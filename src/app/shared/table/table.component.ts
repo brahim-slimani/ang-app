@@ -1,7 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule, MatTableDataSource, MatTableDataSourcePaginator } from '@angular/material/table';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 
@@ -14,8 +13,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 })
 export class TableComponent {
   @Input("dataSource") dataSource = new MatTableDataSource([])
-  @Input("displayedColumns") displayedColumns: any[] = [];
-  columns: string[] = [];
+  @Input("displayedColumns") displayedColumns!: any[];
+  columns!: string[];
   dataLength = 0;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
