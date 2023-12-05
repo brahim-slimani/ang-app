@@ -14,12 +14,13 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 })
 export class TableComponent {
   @Input("dataSource") dataSource = new MatTableDataSource([])
-  @Input("displayedColumns") displayedColumns: string[] = [];
+  @Input("displayedColumns") displayedColumns: any[] = [];
+  columns: string[] = [];
   dataLength = 0;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-
   ngOnChanges() {
+    this.columns = this.displayedColumns.map(item => item.column);
     this.dataLength = this.dataSource.data.length;
     this.dataSource.paginator = this.paginator;
   }
