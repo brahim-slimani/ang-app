@@ -2,15 +2,16 @@ import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+import { MatTableModule, MatTableDataSource, MatTableDataSourcePaginator } from '@angular/material/table';
 import { ProductService } from 'src/app/services/product.service';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { TableComponent } from 'src/app/shared/table/table.component';
 
 
 @Component({
   selector: 'app-spread',
   standalone: true,
-  imports: [CommonModule, MatInputModule, MatButtonModule, MatTableModule, MatPaginatorModule],
+  imports: [CommonModule, MatInputModule, MatButtonModule, MatTableModule, MatPaginatorModule, TableComponent],
   templateUrl: './spread.component.html',
   styleUrls: ['./spread.component.scss']
 })
@@ -20,13 +21,13 @@ export class SpreadComponent {
   productDataSource = new MatTableDataSource([]);
   displayedColumns: string[] = ["id", "title", "brand", "price", "category", "stock", "discountPercentage", "rating"]
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+ // @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private productService: ProductService) {
     productService.getProducts().subscribe(data => {
       this.productDataSource = new MatTableDataSource(data.products);
-      this.dataLength = data.products.length;
-      this.productDataSource.paginator = this.paginator;
+      //this.dataLength = data.products.length;
+      //this.productDataSource.paginator = this.paginator;
     });
   }
 
