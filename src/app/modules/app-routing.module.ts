@@ -14,10 +14,15 @@ const routes: Routes = [
     title: 'Login page',
   },
   {
-    path: '',
+    path: 'home',
     component: MainComponent,
     title: 'Home page',
     canActivate: [AuthGuard]
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: "full"
   },
   {
     path: 'details/:id',
@@ -32,7 +37,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path : 'spread',
+    path: 'spread',
+    title: 'Spread page',
     component: SpreadComponent,
     canActivate: [AuthGuard]
   },
