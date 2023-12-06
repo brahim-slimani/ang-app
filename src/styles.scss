@@ -180,3 +180,13 @@ button:disabled {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/************ MUI Customization *************/
+.mat-mdc-icon-button.mat-mdc-button-base {
+    padding: 6px;
+    --mdc-icon-button-state-layer-size: 35px;
+}
+
+.mat-mdc-row {
+    height: 40px !important;
+}
