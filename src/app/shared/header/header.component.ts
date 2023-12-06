@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { JWTWorkerService } from 'src/app/services/jwt-worker.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { NAV_ITEMS } from '../constants';
 
