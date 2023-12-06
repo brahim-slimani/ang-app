@@ -8,7 +8,7 @@ import { NAV_ITEMS } from '../constants';
 @Component({ selector: 'app-header', standalone: true, imports: [CommonModule, RouterModule], templateUrl: './header.component.html', styleUrls: ['./header.component.scss'] })
 export class HeaderComponent {
 
-  navItems: Array<any> = NAV_ITEMS
+  navItems: Array<any> = NAV_ITEMS;
   constructor(public authService: AuthService) { }
 
 }
