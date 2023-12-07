@@ -1,3 +1,8 @@
+<mat-form-field>
+    <mat-label># Search</mat-label>
+    <input matInput placeholder="Ex. apple" (keyup)="onFilter($event)" #input>
+    <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
 <table
     mat-table
     [dataSource]="dataSource"
