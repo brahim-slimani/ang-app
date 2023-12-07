@@ -30,4 +30,8 @@ export class TableComponent {
     this.dataSource.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
   }
 
+  onRowClick (row: any) {
+    console.log("-->", row)
+  }
+
 }
