@@ -8,6 +8,7 @@ import { CustomHttpInterceptor } from "../core/interceptors/http-interceptor";
 import { HeaderComponent } from "../shared/header/header.component";
 import { FooterComponent } from "../shared/footer/footer.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ThemeSwitcherComponent } from "../shared/theme-switcher/theme-switcher.component";
 
 @NgModule({
     declarations: [AppComponent],
@@ -25,6 +26,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         }
     ],
     bootstrap: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule, HeaderComponent, FooterComponent, BrowserAnimationsModule]
+    imports: [BrowserModule, AppRoutingModule, HeaderComponent, FooterComponent, BrowserAnimationsModule, ThemeSwitcherComponent]
 })
   export class AppModule {}

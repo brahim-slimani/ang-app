@@ -22,6 +22,7 @@ import { CommonService } from "./services/common.service";
       <router-outlet></router-outlet>
     </section>
     <app-footer></app-footer>
+    <app-theme-switcher></app-theme-switcher>
     </main>`,
 })
 
