@@ -33,7 +33,7 @@ export class SpreadComponent {
     { label: "Stock", column: "stock" },
     { label: "Discount Per", column: "discountPercentage" },
     { label: "Rating", column: "rating" },
-    { label: "Detail Action", column: 'column', action: `<a class='custom-btn'>Learn more</a>`, actionFn(row: any) { navigate2details(row, this.router) }, router: inject(Router) }
+    { label: "Detail Action", column: 'action', action: `<a class='custom-btn'>Learn more</a>`, actionFn(row: any) { navigate2details(row, this.router) }, router: inject(Router) }
   ]
 
   constructor(private productService: ProductService) {
