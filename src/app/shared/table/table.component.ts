@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -14,11 +14,13 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent {
+
   @Input("dataSource") dataSource = new MatTableDataSource([])
   @Input("displayedColumns") displayedColumns!: any[];
   columns!: string[];
   dataLength = 0;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild('actionContainer', { static: true }) actionContainer!: ElementRef;
 
   ngOnChanges() {
     this.columns = this.displayedColumns.map(item => item.column);
@@ -30,8 +32,12 @@ export class TableComponent {
     this.dataSource.filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
   }
 
-  onRowClick (row: any) {
+  onRowClick(row: any) {
     console.log("-->", row)
+  }
+
+  handleClick(c: any, item: any) {
+    c.actionFn(item);
   }
 
 }
